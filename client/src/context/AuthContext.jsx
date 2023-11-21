@@ -38,8 +38,9 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await loginRequest(user);
       console.log(res);
-      setIsAuthenticated(true);
       setUser(res.data);
+      setIsAuthenticated(true);
+      console.log({isAuthenticated}, {res})
     } catch (error) {
       if (Array.isArray(error.response.data)) {
         return setErrors(error.response.data);
@@ -57,47 +58,60 @@ export const AuthProvider = ({ children }) => {
     }
   }, [errors]);
 
-  useEffect(() => {
-    async function checkLogin() {
-      const cookies = Cookies.get();
-
-      if (!cookies.token) {
-        setIsAuthenticated(false);
-        setLoading(false);
-        return setUser(null);
-      }
-
-      if (cookies.token) {
-        try {
-          const res = await verifyTokenRequest(cookies.token);
-          if (!res.data) {
-            setIsAuthenticated(false);
-            setLoading(false);
-            return;
-          }
-
-          setIsAuthenticated(true);
-          setUser(res.data);
-          setLoading(false);
-        } catch (error) {
-          setIsAuthenticated(false);
-          setUser(null);
-          setLoading(false);
-        }
-      }
+  useEffect(()=> {
+  try {
+    const cookies = Cookies.get()
+    console.log({cookies})
+    if (cookies.token) {
+      console.log(cookies.token)
     }
-    checkLogin();
-  }, []);
+  } catch (error) {
+    console.log(error)
+  }
+  }, [])
+
+  // useEffect(() => {
+  //   async function checkLogin() {
+  //     const cookies = Cookies.get();
+  //     console.log(cookies)
+
+  //     if (!cookies.token) {
+  //       setIsAuthenticated(false);
+  //       setLoading(false);
+  //       return setUser(null);
+  //     }
+
+  //     if (cookies.token) {
+  //       try {
+  //         const res = await verifyTokenRequest(cookies.token);
+  //         if (!res.data) {
+  //           setIsAuthenticated(false);
+  //           setLoading(false);
+  //           return;
+  //         }
+
+  //         setIsAuthenticated(true);
+  //         setUser(res.data);
+  //         setLoading(false);
+  //       } catch (error) {
+  //         setIsAuthenticated(false);
+  //         setUser(null);
+  //         setLoading(false);
+  //       }
+  //     }
+  //   }
+  //   checkLogin();
+  // }, []);
 
   return (
     <AuthContext.Provider
-      value={{
+    value={{
+        user,
         signup,
         signin,
-        loading,
-        user,
         isAuthenticated,
         errors,
+        loading,
       }}
     >
       {children}
