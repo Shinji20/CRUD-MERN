@@ -1,8 +1,9 @@
 import axios from "axios";
+import { API_URL } from '../../'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:4000/api',
-  withCredentials: true,
+  baseURL: API_URL,
+  withCredentials: true, //Allow set cookies by https response 
 });
 
 export default instance;
