@@ -9,7 +9,7 @@ Esta es una pequeña aplicación creada usando MERN; la cual sirve enlistar tare
 [axios, bcryptjs, cors, express, jsonwebtoken, cookie-parser, mongoose, morgan, zod]
 
 # Instalación 
-• Clona este repositorio en tu maquina local
+• Clona este repositorio en tu máquina local
 
 • Instala sus dependencias usando el comando npm i, seguido del nombre de cada una de ellas
 
