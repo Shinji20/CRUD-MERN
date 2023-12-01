@@ -1,6 +1,6 @@
 # Aplicación de lista tareas 📚 
 
-Esta es una pequeña aplicación creada usando MERN; en la cual sirve enlistar tareas o múltiples datos, luego de registrarse  
+Esta es una pequeña aplicación creada usando MERN; la cual sirve enlistar tareas o múltiples datos, luego de registrarse  
 
 # Características 
 • Crea, actualiza y elimina tu tareas
