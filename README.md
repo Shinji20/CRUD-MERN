@@ -2,7 +2,7 @@
 
 Esta es una pequeña aplicación creada usando MERN; la cual sirve enlistar tareas o múltiples datos, luego de registrarse  
 
-# Características 
+# Características 🔩
 • Crea, actualiza y elimina tu tareas
 
 # Dependencias utilizadas
